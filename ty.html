@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情人节快乐！</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffebf0; /* 浅粉色背景 */
+            margin: 0;
+            overflow: hidden; /* 隐藏滚动条 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            z-index: 1; /* 确保内容在爱心之上 */
+            position: relative;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #e91e63; /* 粉色 */
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .heart {
+            position: absolute;
+            color: #e91e63;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>祝唐缘宝子情人节快乐！</h1>
+        <p>愿你的每一天都充满爱与幸福！</p>
+    </div>
+
+    <script>
+        // 创建爱心雨效果
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw'; // 随机水平位置
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // 随机下落速度
+            document.body.appendChild(heart);
+
+            // 移除爱心元素以优化性能
+            setTimeout(() => {
+                heart.remove();
+            }, 5000); // 5秒后移除
+        }
+
+        // 每隔一段时间创建一个爱心
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
